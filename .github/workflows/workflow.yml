@@ -41,22 +41,11 @@ jobs:
       - name: Run Playwright Test
         run: mvn test
 
-      - name: Print repository information
-        run: |
-          echo "Repository: $GITHUB_REPOSITORY"
-          echo "Repository ID: $GITHUB_REPOSITORY_ID"
-          echo "Owner: $GITHUB_REPOSITORY_OWNER"
-          echo "Owner ID: $GITHUB_REPOSITORY_OWNER_ID"
-          echo "Ref: $GITHUB_REF"
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ap-south-1
-
-      - name: Verify AWS Identity
-        run: aws sts get-caller-identity
 
       - name: Upload Screenshot to S3
         run: |
