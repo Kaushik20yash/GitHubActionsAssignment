@@ -41,12 +41,13 @@ jobs:
       - name: Run Playwright Test
         run: mvn test
 
-      - name: Print GitHub Context
+      - name: Print repository information
         run: |
-          echo "Repository: ${{ github.repository }}"
-          echo "Repository Owner: ${{ github.repository_owner }}"
-          echo "Ref: ${{ github.ref }}"
-          echo "Workflow: ${{ github.workflow }}"
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Repository ID: $GITHUB_REPOSITORY_ID"
+          echo "Owner: $GITHUB_REPOSITORY_OWNER"
+          echo "Owner ID: $GITHUB_REPOSITORY_OWNER_ID"
+          echo "Ref: $GITHUB_REF"
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
