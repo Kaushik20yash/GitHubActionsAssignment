@@ -6,6 +6,8 @@ target/
 GoogleScreenshot.png
 *.jpg
 
+#random comment
+
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
