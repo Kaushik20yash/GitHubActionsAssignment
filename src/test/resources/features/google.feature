@@ -1,3 +1,4 @@
+@Test
 Feature: Navigating to Google and Clicking a Screenshot
 
   Background:
