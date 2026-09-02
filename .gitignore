@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 .kotlin
 GoogleScreenshot.png
+.jpg
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
