@@ -25,4 +25,8 @@ public class GooglePage {
     public void takeScreenshot() {
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("GoogleScreenshot.png")));
     }
+
+    public Page getPage() {
+        return page;
+    }
 }

@@ -8,6 +8,12 @@ import io.cucumber.java.en.Then;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static org.testng.AssertJUnit.assertTrue;
+
 public class GoogleSteps {
     private static final Logger logger = LoggerFactory.getLogger(GoogleSteps.class);
     private final PageManager pageManager;
@@ -21,7 +27,8 @@ public class GoogleSteps {
         try {
             logger.info("Trying to Navigate to Google");
             pageManager.getGooglePage().navigateToUrl();
-            logger.info("Navigation to Google Failed!");
+            assertThat(pageManager.getGooglePage().getPage()).hasURL("https://www.google.com");
+            logger.info("Successfully navigated to Google Homepage");
         } catch(Exception e) {
             logger.info("Unexpected Error Occured While Trying to Navigate to Google");
         }
@@ -32,6 +39,7 @@ public class GoogleSteps {
         try {
             logger.info("Trying to take a screenshot");
             pageManager.getGooglePage().takeScreenshot();
+            assertTrue(Files.exists(Paths.get("GoogleScreenshot.png")));
             logger.info("Screenshot taken successfully");
         } catch(Exception e) {
             logger.info("Unexpected Error Occured While Trying to Take Screenshot");
