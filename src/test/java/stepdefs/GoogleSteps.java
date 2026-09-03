@@ -27,7 +27,7 @@ public class GoogleSteps {
         try {
             logger.info("Trying to Navigate to Google");
             pageManager.getGooglePage().navigateToUrl();
-            assertThat(pageManager.getGooglePage().getPage()).hasURL("https://www.google.com");
+            assertThat(pageManager.getGooglePage().getPage()).hasURL("https://www.google.com/");
             logger.info("Successfully navigated to Google Homepage");
         } catch(Exception e) {
             logger.info("Unexpected Error Occured While Trying to Navigate to Google");
@@ -39,6 +39,7 @@ public class GoogleSteps {
         try {
             logger.info("Trying to take a screenshot");
             pageManager.getGooglePage().takeScreenshot();
+            Thread.sleep(1000);
             assertTrue(Files.exists(Paths.get("GoogleScreenshot.png")));
             logger.info("Screenshot taken successfully");
         } catch(Exception e) {
